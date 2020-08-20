@@ -1,0 +1,56 @@
+<div class="container pb-3">
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="main">
+                <div class="form-group has-search">
+                  <img src="./../../assets/icons/search-icon.png" alt="search-icon" />
+                  <input type="text" class="form-control" placeholder="Paste URL for Git Repo and press enter">
+                </div>
+                <h4 class="pt-3">Issues of <span>{{repoName}}</span></h4>
+              </div>
+              <div class="row w-adjust">
+                <div class="col-12 col-sm-4 col-md-4 text-left">
+                    <p>Total Issue</p>
+                    <h2>{{ repoLenghth }}</h2>
+                </div>
+                <div class="col-12 col-sm-4 col-md-4 text-left">
+                    <p>Issues in Last 24 hours</p>
+                    <h2>32</h2>
+                </div>
+                <div class="col-12 col-sm-4 col-md-4 text-left">
+                    <p>Issues older than 7 days</p>
+                    <h2>3</h2>
+                </div>
+              </div>
+        </div>
+   </div>
+   <div class="row">
+        <div class="col-12 col-sm-4 col-md-4 pt-4" *ngFor="let issue of issues" (click)="getIDofIssues(issue.id)">
+                <div class="w-post">
+                       <a>
+                            <div class="row p-0">
+                                    <div class="col-12">
+                                        <h3>{{ issue.title }}</h3>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-12">
+                                        <p class="pb-2">Issue Number : <span>{{issue.number }}</span></p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-9">
+                                        <div class="row p-0">
+                                            <div class="col-5 col-sm-3 col-md-3 pr-0 text-center w-logo-img">
+                                                <img src="{{issue.user.avatar_url}}" alt=""/>
+                                            </div>
+                                            <div class="col-7 col-sm-9 col-md-9 w-ml">
+                                                <p class="m-0 pt-2"><span>{{issue.user.login}}</span></p>
+                                                <p>{{ issue.updated_at | date: 'hh' }} hours</p>
+                                        </div>
+                                        </div>
+                                    </div>
+                            </div>
+                       </a>
+                </div>
+        </div>
+   </div>
+</div>
