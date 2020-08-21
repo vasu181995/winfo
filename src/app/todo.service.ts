@@ -5,16 +5,15 @@ import { User } from './todo.module';
   providedIn: 'root'
 })
 export class TodoService {
-apiUrl = "https://api.github.com/repos/vasu181995/test/issues";
-repoUrl = "https://api.github.com/repos/vasu181995/test";
-commentUrl = "https://api.github.com/repos/vasu181995/test/issues/4/comments";
+apiUrl = "";
   constructor(private _http:HttpClient) { }
 
-  getUser() {
+  getUser(event) {
+    this.apiUrl = event+"/issues";
     return this._http.get<User[]>(this.apiUrl);
   }
-  getRepo() {
-    return this._http.get<User[]>(this.repoUrl);
+  getRepo(event) {
+    return this._http.get<User[]>(event);
   }
   getComments(val) {
     return this._http.get<User[]>(val);

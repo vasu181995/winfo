@@ -20,22 +20,6 @@ UserData:any=[];
 
   ngOnInit() {
     this.titleService.setTitle('Winfo Solutions');
-    this.todo.getUser()
-    .subscribe(data => 
-      {
-        this.issues = data;
-        this.repoLenghth = this.issues.length;
-        console.log(data);
-      }
-      );
-    this.todo.getRepo()
-    .subscribe(data => 
-      {
-        this.repo = data;
-        this.repoName = this.repo.name;
-        console.log(data);
-      }
-      );
   }
   getIDofIssues(value) {
     let userData = [];
@@ -45,4 +29,24 @@ UserData:any=[];
     sessionStorage.setItem('userData',setData);
     this.router.navigate(['/details'])
   }
+
+  keyup(event) {
+    console.log(event);
+    this.todo.getUser(event)
+    .subscribe(data => 
+      {
+        this.issues = data;
+        this.repoLenghth = this.issues.length;
+        console.log(data);
+      }
+      );
+      this.todo.getRepo(event)
+    .subscribe(data => 
+      {
+        this.repo = data;
+        this.repoName = this.repo.name;
+        console.log(data);
+      }
+      );
+}
 }

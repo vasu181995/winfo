@@ -4,7 +4,7 @@
             <div class="main">
                 <div class="form-group has-search">
                   <img src="./../../assets/icons/search-icon.png" alt="search-icon" />
-                  <input type="text" class="form-control" placeholder="Paste URL for Git Repo and press enter">
+                  <input type="text" class="form-control" placeholder="Paste URL for Git Repo and press enter" (keyup.enter)="keyup($event.target.value)" >
                 </div>
                 <h4 class="pt-3">Issues of <span>{{repoName}}</span></h4>
               </div>
